@@ -7,11 +7,8 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']),
-    NEXTAUTH_SECRET:
-      process.env.NODE_ENV === 'production'
-        ? z.string().min(1)
-        : z.string().min(1).optional(),
-    NEXTAUTH_URL: z.string().url(),
+    NEXTAUTH_SECRET: z.string().min(1).optional(),
+    NEXTAUTH_URL: z.string().url().optional(),
 
     // email
     SMTP_HOST: z.string().optional(),
@@ -31,4 +28,5 @@ export const env = createEnv({
     NEXT_PUBLIC_GOOGLE_MAP_API_KEY: z.string().optional().default(''),
   },
   runtimeEnv: process.env,
+  skipValidation: !!process.env.SKIP_ENV_VALIDATION || process.env.NEXT_PHASE === 'phase-production-build',
 });
