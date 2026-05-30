@@ -1,0 +1,3 @@
+[jay-staging 5067ebf] added multiple tab and added overflow
+ 6 files changed, 383 insertions(+), 129 deletions(-)
+ create mode 100644 src/app/(beryllium)/presales/_components/workspace/panel-tab-bar.tsx
